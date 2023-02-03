@@ -1,0 +1,15 @@
+C:\Users\Leandro\Desktop\uc12\bin\Debug\net6.0\uc12.exe
+C:\Users\Leandro\Desktop\uc12\bin\Debug\net6.0\uc12.deps.json
+C:\Users\Leandro\Desktop\uc12\bin\Debug\net6.0\uc12.runtimeconfig.json
+C:\Users\Leandro\Desktop\uc12\bin\Debug\net6.0\uc12.dll
+C:\Users\Leandro\Desktop\uc12\bin\Debug\net6.0\uc12.pdb
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.csproj.AssemblyReference.cache
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.AssemblyInfoInputs.cache
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.AssemblyInfo.cs
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.dll
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\refint\uc12.dll
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.pdb
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\uc12.genruntimeconfig.cache
+C:\Users\Leandro\Desktop\uc12\obj\Debug\net6.0\ref\uc12.dll
