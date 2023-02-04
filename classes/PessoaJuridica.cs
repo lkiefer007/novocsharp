@@ -5,9 +5,9 @@ namespace uc12.classes
     public class PessoaJuridica : Pessoa, IPessoaJuridica
     {
 
-        public string ?cnpj {get;set;}
+        public string ?Cnpj {get;set;}
 
-        public string ?razaoSocial {get;set;}
+        public string ?RazaoSocial {get;set;}
 
         public override float PagarImposto(float rendimento)
         {
