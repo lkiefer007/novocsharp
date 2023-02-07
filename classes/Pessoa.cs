@@ -9,7 +9,7 @@ namespace uc12.classes
 
         public Endereco ?Endereco {get;set;}
 
-        public float ?Rendimento{get;set;}
+        public float Rendimento{get;set;}
 
         public abstract float PagarImposto(float rendimento);
      
