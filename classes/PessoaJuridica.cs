@@ -12,11 +12,21 @@ namespace uc12.classes
 
         public string? Fantasia { get; set; }
 
-    //pessoa juridica
-    //para rendimentos até R$ 5000,00 - desconto 6%
-    //para rendimentos entre R$ 5001,00 e R$10.000,00 - desconto de 8%
-    //para rendimentos acima de R$10.000,01 - desconto de 10%
- 
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        //pessoa juridica
+        //para rendimentos até R$ 5000,00 - desconto 6%
+        //para rendimentos entre R$ 5001,00 e R$10.000,00 - desconto de 8%
+        //para rendimentos acima de R$10.000,01 - desconto de 10%
+
 
         public override float PagarImposto(float rendimento)
         {
@@ -32,6 +42,11 @@ namespace uc12.classes
                 //rendimento 10%
                 return rendimento - rendimento / 100 * 10;
             }
+        }
+
+        public override string? ToString()
+        {
+            return base.ToString();
         }
 
         public bool ValidadeCnpj(string cnpj)
@@ -65,5 +80,7 @@ namespace uc12.classes
             }
             return false;
         }
+
+       
     }
 }
