@@ -3,6 +3,9 @@ using System.Text.RegularExpressions;
 
 PessoaFisica metodosPf = new PessoaFisica();
 PessoaJuridica metodosPj = new PessoaJuridica();
+//listas de PF e PJ
+List<PessoaFisica> listaPf = new List<PessoaFisica>(); //inicializa uma lista vazia Pessoa Fisica
+List<PessoaJuridica> listaPj = new List<PessoaJuridica>(); //inicializa uma lista vazia Pessoa Juridica
 
 
 //cabeçalho do sistema
@@ -43,43 +46,131 @@ do
     switch (opcao)
     {
         case "1": //*********pessoa fisica*********
-            Console.Clear();
-            Console.WriteLine($"***********CADASTRO DE PESSOA FISICA**********");
-            Console.WriteLine("");//PULA UMA LINHA
+            string opcaoPf;
+            do
+            {
 
-            //*********Endereço pessoa fisica************
 
-            Endereco endPf1 = new Endereco();
-            endPf1.Logradouro = "Rua Prest";
-            endPf1.Numero = 16;
-            endPf1.Comercial = false;
+                //desenhar sub-menu
+                Console.WriteLine(@$"
 
-            //pessoa fisica 1
-            PessoaFisica Pf1 = new PessoaFisica();
-            Pf1.Nome = "Leandro";
-            Pf1.DataNascimento = new DateTime(1989, 06, 27);
-            Pf1.Cpf = "125.959.497-13";
-            Pf1.Rendimento = 3659;
-            Pf1.Endereco = endPf1;
+=============================================
+|   Escolha uma das opções abaixo           | 
+|-------------------------------------------|
+|        1- Cadastrar Pessoa Fisica         |
+|        2- Listar Pessoa Física            |
+|                                           |
+|        0- Voltar ao menu anterior         |       
+=============================================
+");
+                opcaoPf = Console.ReadLine();
+
+                switch (opcaoPf)
+                {
+                    case "1":
+                        Utils.ParadaNoConsole("Opção Cadastrar Pessoa Física");
+                        Console.Clear();
+                        Console.WriteLine($"***********CADASTRO DE PESSOA FISICA**********");
+                        Console.WriteLine("");//PULA UMA LINHA
+
+                        //*********Endereço pessoa fisica************
+
+                        Endereco enderecoPf = new Endereco();
+                        Console.WriteLine($"Digite o endereço:");
+                        enderecoPf.Logradouro = Console.ReadLine();
+                        Console.WriteLine($"Digite o Numero:");
+                        enderecoPf.Numero = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"Endereço Comercial? S/N:");
+
+                        //string Comercial = Console.ReadLine();
+                        if (Console.ReadLine() == "S")
+                        {
+                            enderecoPf.Comercial = true;
+                        }
+                        else
+                        {
+                            enderecoPf.Comercial = false;
+                        }
+                        enderecoPf.Comercial = false;
+
+                        //pessoa fisica 1
+                        PessoaFisica novaPf = new PessoaFisica();
+                        Console.WriteLine($"Digite o Nome:");
+                        novaPf.Nome = Console.ReadLine();
+                        novaPf.DataNascimento = new DateTime(1989, 06, 27);
+                        Console.WriteLine($"Digite o CPF:");
+                        novaPf.Cpf = Console.ReadLine();
+                        Console.WriteLine($"Informe o Rendimento bruto:");
+                        novaPf.Rendimento = float.Parse(Console.ReadLine());
+                        novaPf.Endereco = enderecoPf;
+
+                        //Cadastrando na Lista
+
+                        listaPf.Add(novaPf); //guarda uma pessoa fisica na lista
+                        Utils.ParadaNoConsole("Pessoa Física cadastrada com sucesso!");
+
+
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine($"******* Listagem de Pessoas Fisica*********");
+
+
+                        foreach (var pessoa in listaPf)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"Nome: {pessoa.Nome}");
+                            Console.WriteLine($"CPF: {pessoa.Cpf}");
+                            Console.WriteLine($"Rendimento: {pessoa.Rendimento}");
+                            Console.WriteLine($"Rendimento Liquido: {metodosPf.PagarImposto(pessoa.Rendimento)}");
+                            Console.WriteLine($"Data Nascimento: {pessoa.DataNascimento}");
+                            Console.WriteLine($"Maior de Idade?: {pessoa.ValidarDataNascimento(pessoa.DataNascimento)}");
+                            Console.WriteLine($"Rua: {pessoa.Endereco.Logradouro}");
+                            Console.WriteLine($"N: {pessoa.Endereco.Numero}");
+                            //Console.WriteLine($"Endereço Comercial?: {pessoa.Endereco.Comercial}");
+                            //string endComercial = (pessoa.Endereco.Comercial) ? "Endereço Comercial: Sim" : "Endereço Comercial: Não";
+                            Console.WriteLine((pessoa.Endereco.Comercial) ? "Endereço Comercial: Sim" : "Endereço Comercial Não");
+                            Console.WriteLine();
+                        }
+
+                        Console.WriteLine();
+                        Utils.ParadaNoConsole("******* Listagem de Pessoas Fisica*********");
+
+                        break;
+                    case "0":
+                        Console.Clear();
+                        Utils.ParadaNoConsole("**********Voltando ao Menu Antenterior*********");
+
+                        break;
+
+
+                    default:
+                        Console.Clear();
+                        Utils.ParadaNoConsole("Opção Inválida!");
+                        break;
+                }
+
+            } while (opcaoPf != "0");
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             //exibição dos dados
             Console.WriteLine($"PESSOA FISICA 1");
 
-            Console.WriteLine($"Nome:{Pf1.Nome}");
-            Console.WriteLine($"CPF:{Pf1.Cpf}");
-            Console.WriteLine($"Rendimento:{Pf1.Rendimento}");
-            Console.WriteLine($"Rendimento Liquido:{metodosPf.PagarImposto(Pf1.Rendimento)}");
-            Console.WriteLine($"Data Nascimento:{Pf1.DataNascimento}");
-            Console.WriteLine($"Maior de Idade?:{Pf1.ValidarDataNascimento(Pf1.DataNascimento)}");
-            Console.WriteLine($"Rua:{Pf1.Endereco.Logradouro}");
-            Console.WriteLine($"N:{Pf1.Endereco.Numero}");
-            Console.WriteLine($"Endereço Comercial?:{Pf1.Endereco.Comercial}");
-            Console.WriteLine($"Pessoa Física");
+            // 
 
 
-            Utils.ParadaNoConsole("Pessoa Física cadastrada com sucesso!");
-            Console.ReadKey(); //parada no sistema
 
             break;
 
