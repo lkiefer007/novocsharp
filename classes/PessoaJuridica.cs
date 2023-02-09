@@ -10,6 +10,8 @@ namespace uc12.classes
 
         public string? RazaoSocial { get; set; }
 
+        public string caminho { get; private set; } = "Database/PessoaJuridica.csv";
+
         public string? Fantasia { get; set; }
 
         public override bool Equals(object? obj)
@@ -30,14 +32,18 @@ namespace uc12.classes
 
         public override float PagarImposto(float rendimento)
         {
-            if (rendimento <=5000){
+            if (rendimento <= 5000)
+            {
                 //6%
 
                 return rendimento - rendimento / 100 * 6;
-            } else if (rendimento <=10000){
+            }
+            else if (rendimento <= 10000)
+            {
                 //8%
-                return rendimento - rendimento /100 * 8;
-            }else
+                return rendimento - rendimento / 100 * 8;
+            }
+            else
             {
                 //rendimento 10%
                 return rendimento - rendimento / 100 * 10;
@@ -74,13 +80,46 @@ namespace uc12.classes
                             return true;
                         }
                     }
-                    
+
                 }
 
             }
             return false;
         }
 
-       
+        public void Inserir(PessoaJuridica pj)
+        {
+            Utils.VerificarPastaArquivo(caminho);
+
+            //criando uma coleção de dados string
+            string[] pjValores = { $"{pj.Nome}, {pj.Cnpj}, {pj.RazaoSocial}" };
+
+            File.AppendAllLines(caminho, pjValores);
+        }
+
+        public List<PessoaJuridica> LerArquivos()
+        {
+            List<PessoaJuridica> ListaPj = new List<PessoaJuridica>();
+
+            string[] linhas = File.ReadAllLines(caminho);
+
+            //posiçoes no arquivo
+            foreach (string cadaLinha in linhas)
+            {
+                string[] atributo = cadaLinha.Split(",");
+
+                PessoaJuridica novaPj = new PessoaJuridica();
+
+                novaPj.Nome = atributo[0];
+                novaPj.Cnpj = atributo[1];
+                novaPj.RazaoSocial = atributo[2];
+
+                ListaPj.Add(novaPj);
+            }
+
+            return ListaPj;
+
+        }
+
     }
 }

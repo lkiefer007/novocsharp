@@ -23,7 +23,7 @@ namespace uc12.classes
 
         }
 
-        public static void ParadaNoConsole (string texto,  ConsoleColor corFonte = ConsoleColor.White)
+        public static void ParadaNoConsole(string texto, ConsoleColor corFonte = ConsoleColor.White)
         {
             Console.ForegroundColor = corFonte;
             Console.WriteLine(texto);
@@ -31,5 +31,28 @@ namespace uc12.classes
             Console.ResetColor();
             Console.ReadLine(); //parada no sistema
         }
+
+
+        //caminho  = "Database/PessoaJuridica.csv";
+
+        public static void VerificarPastaArquivo(string caminho)
+        {
+            string pasta = caminho.Split("/")[0];
+            //se a pasta não existe
+            if (!Directory.Exists(pasta))
+            {
+                //criar pasta
+                Directory.CreateDirectory(pasta);
+            }
+
+            if (!File.Exists(caminho))
+            {
+                using(File.Create(caminho)){}
+            }
+        }
+
     }
+
+
+
 }
