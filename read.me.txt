@@ -1,0 +1,30 @@
+                                ******** ARQUIVO README*************
+
+-Visa o cadastro de Pessoa Física e Jurídica, e adiciona seu respectivo CPF ou CNPJ. 
+
+*Funcionalidades:
+
+*Receber informações do usuário pelo terminal.
+*Alterar dinamicamente os tipos de valores exigidos por meio de variáveis recebidas pelo usuário no terminal.
+*Mostrar resumo das informações salvas no termina.
+*Salvar no arquivo txt.
+
+Tecnologias:
+
+*ASP.NET
+*SDK DO WINDOWS 11
+*Microsoft Visual Code
+
+Organização do projeto:
+
+*Cria arquivos do tipo CS, mantendo-os em um mesmo diretório, facilitando assim suas referências.
+
+Pré-requisitos:
+
+*Programa para edição de códigos front e back-end (exp. Visual Studio Code).
+
+Execução da aplicação:
+
+*Para executar o projeto basta abrir o terminal na pasta do executável e digitar: dotnet run "nomeDoArquivo.CS".
+
+*Não foram encontrados erros de depuração.
